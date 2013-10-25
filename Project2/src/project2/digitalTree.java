@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package project2;
 
 /**
@@ -11,6 +8,7 @@ package project2;
 public class digitalTree extends binaryTree{
     
     
+    @Override
     public void insert( int data )
     {
         String dataStr = Integer.toBinaryString(data);
@@ -60,5 +58,38 @@ public class digitalTree extends binaryTree{
     public void digitalTree()
     {
         root = null;
+    }
+    
+    @Override
+    public boolean lookup(int data)
+    {
+        count = 0;
+        String dataStr = Integer.toBinaryString(data);
+        return(lookup(root, dataStr, 0));
+    }
+    
+    private boolean lookup(Node node, String data, int bit)
+    {
+        if(node == null)
+        {
+            return false;
+        }
+        
+        if(Integer.parseInt(data, 2) == node.value)
+        {
+            return true;
+        }
+        
+        else if(data.charAt(bit) == '0')
+        {
+            count++;
+            return(lookup(node.leftChild, data, bit + 1));
+        }
+        
+        else
+        {
+            count++;
+            return(lookup(node.rightChild, data, bit + 1));
+        }
     }
 }
