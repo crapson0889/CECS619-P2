@@ -70,6 +70,8 @@ public class digitalTree extends binaryTree{
     
     private boolean lookup(Node node, String data, int bit)
     {
+        int test = data.length();
+        int num = Integer.parseInt(data, 2);
         if(node == null)
         {
             return false;
