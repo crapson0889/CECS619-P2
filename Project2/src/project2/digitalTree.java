@@ -76,10 +76,15 @@ public class digitalTree extends binaryTree{
         {
             return false;
         }
-        
-        if(Integer.parseInt(data, 2) == node.value)
+                
+        else if(Integer.parseInt(data, 2) == node.value)
         {
             return true;
+        }
+        
+        else if(bit == data.length())
+        {
+            return false;
         }
         
         else if(data.charAt(bit) == '0')
